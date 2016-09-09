@@ -1,3 +1,3 @@
 # unix-learning
 
-Learning notes of *The Linux Programming interface*.
+Learning notes of *The Linux Programming Interface*.
