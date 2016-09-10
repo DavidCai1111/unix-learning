@@ -37,7 +37,9 @@ int main (int argc, char** argv) {
 
       case 'w': {
         ssize_t bytesWrite = write(fd, &argv[i][1], strlen(&argv[i][1]));
+
         check(bytesWrite, "can not write");
+
         cout << "write " << bytesWrite << "bytes" << endl;
         break;
       }
