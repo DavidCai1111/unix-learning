@@ -5,16 +5,10 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-using std::invalid_argument;
-using std::runtime_error;
-using std::string;
+using namespace std;
 
 inline void check (int fd, const char* message) {
   if (fd == -1) throw runtime_error(message);
-}
-
-inline void print (const char* message) {
-  std::cout << message << std::endl;
 }
 
 int main (int argc, char** argv) {
@@ -30,21 +24,21 @@ int main (int argc, char** argv) {
   for (int i = 2; i < argc; i++) {
     switch (argv[i][0]) {
       case 'r': {
-        int len = stoi(string(argv[i]).substr(1, strlen(argv[i] - 1)));
+        int len = stoi(string(&argv[i][1]));
         char buf[len];
 
-        ssize_t bytesRead = read(fd, buf, len);
+        ssize_t bytesRead = read(fd, &argv[i][1], len);
         check(bytesRead, "can not read");
 
-        if (bytesRead == 0) std::cout << "end of line" << std::endl;
-        else std::cout << buf << std::endl;
+        if (bytesRead == 0) cout << "end of line" << endl;
+        else cout << buf << endl;
         break;
       }
 
       case 'w': {
         ssize_t bytesWrite = write(fd, &argv[i][1], strlen(&argv[i][1]));
         check(bytesWrite, "can not write");
-        std::cout << "write " << bytesWrite << "bytes" << std::endl;
+        cout << "write " << bytesWrite << "bytes" << endl;
         break;
       }
 
