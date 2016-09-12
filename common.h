@@ -4,8 +4,8 @@
 #include <stdexcept>
 #include <iostream>
 
-#define CHECK_FD_ERROR(fd, message)                     \
-  if (fd == -1) throw std::runtime_error(message);
+#define CHECK_ERROR(toCheck, message)                   \
+  if (toCheck == -1) throw std::runtime_error(message);
 
 #define CHECK_NULL(toCheck, message)                    \
   if (toCheck == NULL) throw std::invalid_argument(message);
@@ -15,5 +15,8 @@
 
 #define PRINT(message)                                  \
   std::cout << message << std::endl;
+
+#define PRINT_TWO(messageL, messageR)                   \
+  std::cout << messageL << messageR << std::endl;
 
 #endif // !__COMMON_H__

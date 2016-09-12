@@ -16,7 +16,7 @@ int main (int argc, char** argv) {
   int fd = open(argv[1], O_RDWR,
     S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH);
 
-  CHECK_FD_ERROR(fd, "can not open")
+  CHECK_ERROR(fd, "can not open")
 
   for (int i = 2; i < argc; i++) {
     switch (argv[i][0]) {
@@ -26,7 +26,7 @@ int main (int argc, char** argv) {
 
         ssize_t bytesRead = read(fd, &argv[i][1], len);
 
-        CHECK_FD_ERROR(bytesRead, "can not read")
+        CHECK_ERROR(bytesRead, "can not read")
 
         if (bytesRead == 0) cout << "end of line" << endl;
         else cout << buf << endl;
@@ -36,7 +36,7 @@ int main (int argc, char** argv) {
       case 'w': {
         ssize_t bytesWrite = write(fd, &argv[i][1], strlen(&argv[i][1]));
 
-        CHECK_FD_ERROR(bytesWrite, "can not write")
+        CHECK_ERROR(bytesWrite, "can not write")
 
         cout << "write " << bytesWrite << "bytes" << endl;
         break;

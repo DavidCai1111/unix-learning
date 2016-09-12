@@ -15,12 +15,12 @@ int main (int argc, char** argv) {
 
   int inputFd = open(argv[1], O_RDONLY);
 
-  CHECK_FD_ERROR(inputFd, "open file error")
+  CHECK_ERROR(inputFd, "open file error")
 
   int destFd = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC,
     S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
 
-  CHECK_FD_ERROR(destFd, "open file error")
+  CHECK_ERROR(destFd, "open file error")
 
   ssize_t bytesRead, bytesWrite;
 
@@ -29,9 +29,9 @@ int main (int argc, char** argv) {
     if (bytesWrite != bytesRead) throw runtime_error("can not write whole buffer");
   }
 
-  CHECK_FD_ERROR(bytesRead, "can not read buffer")
-  CHECK_FD_ERROR(close(inputFd), "close input fd error")
-  CHECK_FD_ERROR(close(destFd), "close dest fd error")
+  CHECK_ERROR(bytesRead, "can not read buffer")
+  CHECK_ERROR(close(inputFd), "close input fd error")
+  CHECK_ERROR(close(destFd), "close dest fd error")
 
   return 0;
 }

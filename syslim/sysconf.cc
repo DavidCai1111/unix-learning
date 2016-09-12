@@ -5,9 +5,9 @@
 void sysConfPrint (const char* message, int name) {
   long lim = sysconf(name);
 
-  CHECK_FD_ERROR(lim, "sysConf error")
+  CHECK_ERROR(lim, "sysConf error")
 
-  std::cout << message << lim << std::endl;
+  PRINT_TWO(message, lim)
 }
 
 int main (int argc, char** argv) {
