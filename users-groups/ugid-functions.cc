@@ -1,9 +1,11 @@
-#include <cstddef>
+#include <iostream>
 #include <stdexcept>
 #include <pwd.h>
 #include <grp.h>
 
 using std::invalid_argument;
+using std::cout;
+using std::endl;
 
 #define CHECK_NULL(toCheck, message)                    \
   if (toCheck == NULL) throw invalid_argument(message);
@@ -45,4 +47,13 @@ gid_t groupIdFromName (const char* name) {
   CHECK_NULL(grp, "invalid name")
 
   return grp->gr_gid;
+}
+
+int main (int argc, char** argv) {
+  cout << "root uid: " << userIdFromName("root") << endl;
+  cout << "root name: " << userNameFromId(0) << endl;
+  cout << "group id of name 'wheel': " << groupIdFromName("wheel") << endl;
+  cout << "gourp name of id 0: " << groupNameFromId(0) << endl;
+
+  return 0;
 }
