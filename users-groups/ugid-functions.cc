@@ -2,16 +2,11 @@
 #include <stdexcept>
 #include <pwd.h>
 #include <grp.h>
+#include "../common.h"
 
 using std::invalid_argument;
 using std::cout;
 using std::endl;
-
-#define CHECK_NULL(toCheck, message)                    \
-  if (toCheck == NULL) throw invalid_argument(message);
-
-#define CHECK_NAME(name)                                \
-  if (name == NULL || *name == '\0') throw invalid_argument("invalid name");
 
 char* userNameFromId (const uid_t uid) {
   passwd* pwd = getpwuid(uid);

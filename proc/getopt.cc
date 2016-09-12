@@ -1,9 +1,6 @@
 #include <iostream>
 #include <unistd.h>
-
-inline void print (const char* message) {
-  std::cout << message << std::endl;
-}
+#include "../common.h"
 
 int main (int argc, char** argv) {
   char opt;

@@ -30,3 +30,7 @@
 
 # Vscode
 .vscode
+
+# Clion
+CMakeLists.txt
+.idea
