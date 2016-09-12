@@ -8,10 +8,10 @@ int main (int argc, char** argv) {
   while ((opt = getopt(argc, argv, "nt")) != -1) {
     switch (opt) {
       case 'n':
-        print("option 'n' find");
+        PRINT("option 'n' find")
         break;
       case 't':
-        print("option 't' find");
+        PRINT("option 't' find")
         break;
     }
   }
