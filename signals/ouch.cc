@@ -2,12 +2,8 @@
 #include <signal.h>
 #include "../common.h"
 
-static void ouch (int sig) {
-  PRINT("Ouch!")
-}
-
 int main(int argc, char const *argv[]) {
-  CHECK_SIG(signal(SIGINT, ouch));
+  CHECK_SIG(signal(SIGINT, [] (int sig) { PRINT("Ouch!") }));
 
   for (unsigned int i = 0; ;i++) {
     PRINT(i)
