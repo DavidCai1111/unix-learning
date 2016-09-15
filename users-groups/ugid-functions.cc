@@ -45,10 +45,10 @@ gid_t groupIdFromName (const char* name) {
 }
 
 int main (int argc, char** argv) {
-  cout << "root uid: " << userIdFromName("root") << endl;
-  cout << "root name: " << userNameFromId(0) << endl;
-  cout << "group id of name 'wheel': " << groupIdFromName("wheel") << endl;
-  cout << "gourp name of id 0: " << groupNameFromId(0) << endl;
+  PRINT("root uid                : " << userIdFromName("root"))
+  PRINT("root name               : " << userNameFromId(0))
+  PRINT("group id of name 'wheel': " << groupIdFromName("wheel"))
+  PRINT("gourp name of id 0      : " << groupNameFromId(0))
 
   return 0;
 }

@@ -7,7 +7,7 @@ void sysConfPrint (const char* message, int name) {
 
   CHECK_ERROR(lim, "sysConf error")
 
-  PRINT_TWO(message, lim)
+  PRINT(message << lim)
 }
 
 int main (int argc, char** argv) {

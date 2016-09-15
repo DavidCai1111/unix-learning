@@ -1,6 +1,7 @@
 #ifndef __COMMON_H__
 #define __COMMON_H__
 
+#include <signal.h>
 #include <stdexcept>
 #include <iostream>
 
@@ -13,10 +14,10 @@
 #define CHECK_NAME(name)                                \
   if (name == NULL || *name == '\0') throw std::invalid_argument("invalid name");
 
+#define CHECK_SIG(sig)                                  \
+  if (sig == SIG_ERR) throw std::invalid_argument("signal error");
+
 #define PRINT(message)                                  \
   std::cout << message << std::endl;
-
-#define PRINT_TWO(messageL, messageR)                   \
-  std::cout << messageL << messageR << std::endl;
 
 #endif // !__COMMON_H__

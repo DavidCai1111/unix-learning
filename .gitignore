@@ -34,3 +34,11 @@
 # Clion
 CMakeLists.txt
 .idea
+
+# Cmake
+cmake*
+CMakeCache.txt
+unix-learning
+Makefile
+CMakeFiles/**
+test.cpp

@@ -6,11 +6,11 @@ int main (int argc, char** argv) {
 
   CHECK_ERROR(uname(&uts), "uname error")
 
-  PRINT_TWO("Node name    : ", uts.nodename)
-  PRINT_TWO("System name  : ", uts.sysname)
-  PRINT_TWO("Release:     : ", uts.release)
-  PRINT_TWO("Version      : ", uts.version)
-  PRINT_TWO("Machine      : ", uts.machine)
+  PRINT("Node name    : " << uts.nodename)
+  PRINT("System name  : " << uts.sysname)
+  PRINT("Release:     : " << uts.release)
+  PRINT("Version      : " << uts.version)
+  PRINT("Machine      : " << uts.machine)
 
   return 0;
 }

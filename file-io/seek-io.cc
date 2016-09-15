@@ -28,8 +28,8 @@ int main (int argc, char** argv) {
 
         CHECK_ERROR(bytesRead, "can not read")
 
-        if (bytesRead == 0) cout << "end of line" << endl;
-        else cout << buf << endl;
+        if (bytesRead == 0) PRINT("end of line")
+        else PRINT(buf)
         break;
       }
 
@@ -38,7 +38,7 @@ int main (int argc, char** argv) {
 
         CHECK_ERROR(bytesWrite, "can not write")
 
-        cout << "write " << bytesWrite << "bytes" << endl;
+        PRINT("write " << bytesWrite << "bytes")
         break;
       }
 
