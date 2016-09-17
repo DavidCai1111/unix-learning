@@ -5,8 +5,11 @@
 #include <stdexcept>
 #include <iostream>
 
+#define THROW(message)                                  \
+  throw std::runtime_error(message);
+
 #define CHECK_ERROR(toCheck, message)                   \
-  if (toCheck == -1) throw std::runtime_error(message);
+  if (toCheck == -1) THROW(message)
 
 #define CHECK_NULL(toCheck, message)                    \
   if (toCheck == NULL) throw std::invalid_argument(message);
