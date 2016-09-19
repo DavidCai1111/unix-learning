@@ -11,6 +11,9 @@
 #define CHECK_ERROR(toCheck, message)                   \
   if (toCheck == -1) THROW(message)
 
+#define CHECK_NOT_ZERO(toCheck, message)                \
+  if (toCheck != 0) THROW(message)
+
 #define CHECK_NULL(toCheck, message)                    \
   if (toCheck == NULL) throw std::invalid_argument(message);
 
